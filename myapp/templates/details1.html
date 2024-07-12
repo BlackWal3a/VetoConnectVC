@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../../static/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../../static/img/VetoConnect_Logo.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Veto Connect Login
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- CSS Files -->
+  <link href="../../static/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../../static/css/now-ui-kit.css" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../../static/demo/demo.css" rel="stylesheet" />
+  <style>
+    select.form-control, select.form-control option {
+        color: black;
+      }
+      
+  </style>
+</head>
+
+<body class="login-page sidebar-collapse">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
+    <div class="container">
+      <div class="logo-container">
+        <img src="../../static/img/VetoConnect_Logo.png" alt="">
+      </div>
+      <div class="navbar-translate">
+        <a class="navbar-brand" href=".." rel="tooltip" title="Developed By Nejib Ben Hmida" data-placement="bottom" target="_blank">
+          vetoConnect
+        </a>
+        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-bar top-bar"></span>
+          <span class="navbar-toggler-bar middle-bar"></span>
+          <span class="navbar-toggler-bar bottom-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="../../static/img/blurred-image-1.jpg">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../../login/help">Vous avez un problème ?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="Suivez-nous sur Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
+              <i class="fab fa-twitter"></i>
+              <p class="d-lg-none d-xl-none">Twitter</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="Aimez-nous sur facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
+              <i class="fab fa-facebook-square"></i>
+              <p class="d-lg-none d-xl-none">Facebook</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="Suivez-nous sur Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
+              <i class="fab fa-instagram"></i>
+              <p class="d-lg-none d-xl-none">Instagram</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- End Navbar -->
+  <div class="page-header clear-filter" filter-color="orange">
+    <div class="page-header-image" style="background-image:url(../../static/img/bg11.jpg)"></div>
+    <div class="content">
+      <div class="container">
+        <div class="col-md-4 ml-auto mr-auto">
+          <div class="card card-login card-plain">
+            <div class="card-header">
+                <h4 class="font-weight-bolder">Remplissez vos détails</h4>
+                <p class="mb-4">Entrez vos informations</p>
+              </div>
+              {% if messages %}
+                  <div>
+                      {% for message in messages %}
+                          <div class="{% if message.tags %} alert alert-danger {{ message.tags }}{% endif %}">{{ message }}</div>
+                      {% endfor %}
+                  </div>
+              {% endif %}
+            <form class="form" method="post"> 
+                {% csrf_token %}  
+                <div class="input-group input-group-outline mb-3">
+                  <input 
+                  type="text" 
+                  class="form-control" 
+                  id="prenom" 
+                  name="prenom" 
+                  aria-label="prenom"
+                  placeholder="Prénom"
+                  aria-describedby="name-addon">                        
+                </div>
+                <div class="input-group input-group-outline mb-3">
+                  <input 
+                  type="text" 
+                  class="form-control" 
+                  id="nom" 
+                  name="nom" 
+                  aria-label="nom"
+                  placeholder="Nom"
+                  aria-describedby="name-addon">
+                </div>
+                <div class="input-group input-group-outline mb-3">
+                  <select class="form-control" id="clinic" name="clinic" onfocus="focused(this)" onfocusout="defocused(this)" required>
+                    <option selected disabled style="color: black;">Clinique Vétérinaire</option>
+                    <option value="Le Véto - Clinique Vétérinaire." >Le Véto - Clinique Vétérinaire.</option>
+                    <option value="Carthage Vet - Clinique Vétérinaire.">Carthage Vet - Clinique Vétérinaire.</option>
+                    <option value="Clinique vétérinaire Jardins de Carthage.">Clinique vétérinaire Jardins de Carthage.</option>
+                    <option value="Clinique Vétérinaire de la Marsa.">Clinique Vétérinaire de la Marsa.</option>
+                    <option value="Clinique vétérinaire El Khalil.">Clinique vétérinaire El Khalil.</option>
+                    <option value="Clinique vétérinaire Ain Zaghouan Nord.">Clinique vétérinaire Ain Zaghouan Nord.</option>
+                    <option value="Archipets - Clinique Vétérinaire du Lac.">Archipets - Clinique Vétérinaire du Lac.</option>
+                    <option value="Clinique Vétérinaire MarsaVéto.">Clinique Vétérinaire MarsaVéto.</option>
+                    <option value="Clinique vétérinaire Happy Pets - Sidi Bousaid.">Clinique vétérinaire Happy Pets - Sidi Bousaid.</option>
+                    <option value="City VET, Clinique et Urgences Vétérinaire.">City VET, Clinique et Urgences Vétérinaire.</option>
+                    <option value="Mars'Animaux - Clinique Vétérinaire.">Mars'Animaux - Clinique Vétérinaire.</option>
+                    <option value="Clinique Vétérinaire El Hana.">Clinique Vétérinaire El Hana.</option>
+                  </select>
+                </div>
+                <div class="input-group input-group-outline mb-3">
+                  <select class="form-control" id="clinic" name="ageInput" onfocus="focused(this)" onfocusout="defocused(this)" required>
+                    <option selected disabled>Spécialité</option>
+                    <option value="Vétérinaire généraliste.">Vétérinaire généraliste.</option>
+                    <option value="Vétérinaire spécialisé en animaux de compagnie.">Vétérinaire spécialisé en animaux de compagnie.</option>
+                    <option value="Vétérinaire équin.">Vétérinaire équin.</option>
+                    <option value="Vétérinaire des animaux exotiques.">Vétérinaire des animaux exotiques.</option>
+                    <option value="Vétérinaire des animaux de ferme (ou rurale).">Vétérinaire des animaux de ferme (ou rurale).</option>
+                    <option value="Vétérinaire chirurgien.">Vétérinaire chirurgien.</option>
+                    <option value="Vétérinaire spécialiste en dentisterie.">Vétérinaire spécialiste en dentisterie.</option>
+                    <option value="Vétérinaire dermatologue.">Vétérinaire dermatologue.</option>
+                    <option value="Vétérinaire cardiologue.">Vétérinaire cardiologue.</option>
+                    <option value="Vétérinaire oncologue.">Vétérinaire oncologue.</option>
+                    <option value="Vétérinaire neurologue.">Vétérinaire neurologue.</option>
+                    <option value="Vétérinaire ophtalmologiste.">Vétérinaire ophtalmologiste.</option>
+                    <option value="Vétérinaire comportementaliste.">Vétérinaire comportementaliste.</option>
+                    <option value="Vétérinaire pathologiste.">Vétérinaire pathologiste.</option>
+                    <option value="Vétérinaire toxicologue.">Vétérinaire toxicologue.</option>
+                    <option value="Vétérinaire en médecine interne.">Vétérinaire en médecine interne.</option>
+                    <option value="Vétérinaire en santé publique.">Vétérinaire en santé publique.</option>
+                    <option value="Vétérinaire anesthésiste.">Vétérinaire anesthésiste.</option>
+                  </select>
+                </div>
+                <div class="input-group input-group-outline mb-3">
+                  <select class="form-control" id="clinic" name="animall" onfocus="focused(this)" onfocusout="defocused(this)" required>
+                    <option selected disabled>Animal fréquament examiné</option>
+                    <option value="Vétérinaire généraliste.">Chats.</option>
+                    <option value="Vétérinaire spécialisé en animaux de compagnie.">Chiens.</option>
+                    <option value="Vétérinaire équin.">Chiens et chats.</option>
+                    <option value="Vétérinaire des animaux exotiques.">Mixte NAC.</option>
+                  </select>
+                </div>
+                <div class="input-group input-group-outline mb-3">
+                  <input type="number" class="form-control" min="0" id="ordreInput" placeholder="Numéro d'ordre" name="ordreInput" >
+                </div>
+                {% if error %}  
+                <div class="alert alert-danger" role="alert">
+                  Invalid username or password.
+                </div>
+              {% endif %}
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary btn-round btn-lg btn-block">Suivant</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="container">
+          <nav>
+            <ul>
+              <li>
+                <a href="..">
+                  VetoConnect
+                </a>
+              </li>
+              <li>
+                <a href="../../#aboutus_section">
+                 A Propos
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright" id="copyright">
+            &copy;
+            <script>
+              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+            </script>, Developed By
+            <a href="https://nejib.netlify.app" target="_blank">Nejib Ben Hmida</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="../../static/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="../../static/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="../../static/js/core/bootstrap.min.js" type="text/javascript"></script>
+  <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+  <script src="../../static/js/plugins/bootstrap-switch.js"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="../../static/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+  <script src="../../static/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+  <script src="../../static/js/now-ui-kit.js?v=1.3.0" type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../../static/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../../static/img/VetoConnect_Logo.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Now UI Kit by Creative Tim
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- CSS Files -->
+  <link href="../../static/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../../static/css/now-ui-kit.css?v=1.3.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../../static/demo/demo.css" rel="stylesheet" />
+</head>
+
+<body class="landing-page sidebar-collapse">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom">
+          ID Formulaire : {{context.id}}
+        </a>
+        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-bar top-bar"></span>
+          <span class="navbar-toggler-bar middle-bar"></span>
+          <span class="navbar-toggler-bar bottom-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="../../static/img/blurred-image-1.jpg">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="..">Retour au profil</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <div class="wrapper">
+    <div class="page-header page-header-small">
+        {% if context.animal.animal_name == "Féline éxclusive" %}
+        <div class="page-header-image" data-parallax="true" style="background-image: url('../../static/img/cat_2.png');">
+        {% elif context.animal.animal_name == "Canine éxclusive" %}
+        <div class="page-header-image" data-parallax="true" style="background-image: url('../../static/img/dog_2.png');">
+        {% else %}
+        <div class="page-header-image" data-parallax="true" style="background-image: url('../../static/img/catanddog_2.png');">
+        {% endif %}        
+    </div>
+      <div class="content-center">
+        <div class="container">
+          <h1 class="title">{{context.animal.probleme}}.</h1>
+        </div>
+      </div>
+    </div>
+    <style>
+        .descriptionn {
+            color: #000;
+            font-weight: 400;
+        }
+        .titlee {
+            font-weight: 400;
+            padding-top: 30px;
+        }
+        /* Container for the images */
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Adjust the gap between images as needed */
+}
+
+.image-container img {
+    height: auto;
+    width: auto;
+    max-height: 200px; /* Set a max height for the images */
+    max-width: 100%;
+    cursor: pointer; /* Add a pointer cursor on hover */
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Download Button */
+.download-icon {
+    position: absolute;
+    top: 25px;
+    right: 80px; /* Adjust position to the left of the close button */
+    color: #f1f1f1;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.download-icon:hover,
+.download-icon:focus {
+    color: #bbb;
+}
+
+    </style>   
+    <div class="section section-about-us">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+              <h2 class="titlee"><b>Informations</b> sur le formulaire</h2>
+              <h5 class="descriptionn">ID : <b>{{context.id}}</b></h5>
+              <h5 class="descriptionn">Nom utilisateur : <b>{{context.animal.client_name}}</b></h5>
+              <h5 class="descriptionn">E-Mail : <b>{{context.animal.email}}</b></h5>
+              <h5 class="descriptionn">Date de soumission : <b>{{context.animal.date}}</b></h5>
+          </div>
+          <div class="col-md-8 ml-auto mr-auto text-center">
+            <h2 class="titlee"><b>Informations</b> sur l'animal</h2>
+            <h5 class="descriptionn">Race : <b>{{context.animal.animal_name}}</b></h5>
+          </div>
+          <div class="col-md-8 ml-auto mr-auto text-center">
+            <h2 class="titlee"><b>Description</b> complémentaire</h2>
+            <h5 class="descriptionn">{{context.animal.description}}</h5>
+          </div>
+          <div class="col-md-8 ml-auto mr-auto text-center">
+            <h2 class="titlee"><b>Médias</b> présents</h2>
+            <div class="image-container">
+                {%if context.animal.picture1%}
+                <img src="{{ context.animal.picture1.url }}" alt="Figure 1" class="img-fluid" onclick="openModal(this)">
+                {%else%}
+                <img src="../../static/img/no_picture.jpg" alt="Figure 1" class="img-fluid" onclick="openModal(this)">
+                {%endif%}
+                {%if context.animal.picture2%}
+                <img src="{{ context.animal.picture2.url }}" alt="Figure 2" class="img-fluid" onclick="openModal(this)">
+                {%else%}
+                <img src="../../static/img/no_picture.jpg" alt="Figure 1" class="img-fluid" onclick="openModal(this)">
+                {%endif%}
+                {%if context.animal.picture3%}
+                <img src="{{ context.animal.picture3.url }}" alt="Figure 3" class="img-fluid" onclick="openModal(this)">
+                {%else%}
+                <img src="../../static/img/no_picture.jpg" alt="Figure 1" class="img-fluid" onclick="openModal(this)">
+                {%endif%}
+              </div>
+         </div>
+        
+        <!-- Modal Structure -->
+        <div id="imageModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <a id="downloadLink" download>
+                <i class="fas fa-download download-icon"></i>
+            </a>
+            <img class="modal-content" id="modalImage">
+            <div id="caption"></div>
+        </div>
+        <script>
+            // Open the Modal
+            function openModal(element) {
+                var modal = document.getElementById("imageModal");
+                var modalImg = document.getElementById("modalImage");
+                var captionText = document.getElementById("caption");
+                var downloadLink = document.getElementById("downloadLink");
+    
+                modal.style.display = "block";
+                modalImg.src = element.src;
+                captionText.innerHTML = element.alt;
+                downloadLink.href = element.src;
+            }
+    
+            // Close the Modal
+            function closeModal() {
+                var modal = document.getElementById("imageModal");
+                modal.style.display = "none";
+            }
+        </script>
+        <div class="col-md-8 ml-auto mr-auto text-center">
+            <h2 class="titlee"><b>Avis</b> du médecin</h2>
+            <h5 class="descriptionn">{% if context.animal.response %}{{ context.animal.response }}{% else %}En attente de réponse{% endif %}</h5>
+         </div> 
+         {% if context.feedback_message %}
+         <div class="modal-overlay" id="modalOverlay">
+             <div class="modal-container">
+                 <button class="close-btn" onclick="closeModal()">×</button>
+                 <div class="alert" style="color: black;">
+                     {{ context.feedback_message }}
+                 </div>
+             </div>
+         </div>
+     {% endif %}
+ 
+     <script>
+         function closeModal() {
+             document.getElementById('modalOverlay').style.display = 'none';
+         }
+     </script>  
+     <style>
+      .modal-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+          backdrop-filter: blur(5px); /* blur effect */
+          z-index: 9998; /* ensure it's behind the modal */
+      }
+      .modal-container {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: white;
+          padding: 40px;
+          border-radius: 8px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          z-index: 9999; /* ensure it's on top */
+          text-align: center;
+      }
+      .modal-container .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: none;
+          border: none;
+          font-size: 20px;
+          cursor: pointer;
+      }
+  </style>
+
+         {% if context.animal.status == 'A répondu' %}
+         <div class="col-md-8 ml-auto mr-auto text-center" id="feedback">
+             <h2 class="titlee"><b>Votre</b> Feedback</h2>
+             <form method="post" action="{% url 'client_form_detail' context.animal.id %}">
+                 {% csrf_token %}
+                 <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
+                     <div class="rating">
+                         <span class="star" data-value="5">&#9733;</span>
+                         <span class="star" data-value="4">&#9733;</span>
+                         <span class="star" data-value="3">&#9733;</span>
+                         <span class="star" data-value="2">&#9733;</span>
+                         <span class="star" data-value="1">&#9733;</span>
+                     </div>
+                     <input type="hidden" id="rating" name="rating" value="0">
+                     <div class="textarea-container">
+                         <textarea class="form-control" name="message" rows="4" cols="80" placeholder="Type a message..."></textarea>
+                     </div>
+                     <div class="send-button">
+                         <button type="submit" id="sendFeedback" class="btn btn-primary btn-round btn-block btn-lg">Send Feedback</button>
+                     </div>
+                 </div>
+             </form>
+         </div>
+     {% endif %}
+     
+         <style>
+          .rating {
+              font-size: 2em;
+          }
+          
+          .star {
+              display: inline-block;
+              cursor: pointer;
+              color: #ddd;
+          }
+          
+          .star:hover,
+          .star:hover ~ .star,
+          .star.selected,
+          .star.selected ~ .star {
+              color: #ffdd00;
+          }
+          </style>
+          <script>
+          document.addEventListener("DOMContentLoaded", function() {
+              const stars = document.querySelectorAll('.star');
+              const ratingInput = document.getElementById('rating');
+          
+              stars.forEach(star => {
+                  star.addEventListener('click', function() {
+                      const ratingValue = this.dataset.value;
+                      ratingInput.value = ratingValue;
+          
+                      stars.forEach(s => {
+                          if (s.dataset.value <= ratingValue) {
+                              s.classList.add('selected');
+                          } else {
+                              s.classList.remove('selected');
+                          }
+                      });
+                  });
+              });
+          
+              document.getElementById('sendFeedback').addEventListener('click', function(event) {
+                  const ratingValue = ratingInput.value;
+                  const message = document.querySelector('textarea[name="message"]').value;
+          
+                  if (ratingValue == 0) {
+                      alert('Please select a rating.');
+                      event.preventDefault();
+                      return;
+                  }
+          
+                  if (message.trim() == "") {
+                      alert('Please enter your feedback message.');
+                      event.preventDefault();
+                      return;
+                  }
+              });
+          });
+          </script>
+
+        <div class="separator separator-primary"></div>
+      </div>
+    </div>
+    </div>
+    <footer class="footer footer-default">
+      <div class=" container ">
+        <nav>
+          <ul>
+            <li>
+              <a href="..">
+                VETOCONNECT
+              </a>
+            </li>
+            <li>
+              <a href="">
+                A propos
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="copyright" id="copyright">
+          &copy;
+          <script>
+            document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+          </script>, Developed By 
+          <a href="https://nejib.netlify.app" target="_blank">Nejib Ben Hmida</a>.
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="../../static/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="../../static/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="../../static/js/core/bootstrap.min.js" type="text/javascript"></script>
+  <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+  <script src="../../static/js/plugins/bootstrap-switch.js"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="../../static/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+  <script src="../../static/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+  <script src="../../static/js/now-ui-kit.js?v=1.3.0" type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="apple-touch-icon" sizes="76x76" href="../../static/img/apple-icon.png">
+      <link rel="icon" type="image/png" href="../../static/img/VetoConnect_Logo.png">
+      <title>
+        Détails
+      </title>
+      <!--     Fonts and icons     -->
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+      <!-- Nucleo Icons -->
+      <link href="../../static/css/nucleo-icons.css" rel="stylesheet" />
+      <link href="../../static/css/nucleo-svg.css" rel="stylesheet" />
+      <!-- Font Awesome Icons -->
+      <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+      <!-- Material Icons -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+      <!-- CSS Files -->
+      <link id="pagestyle" href="../../static/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+      <!-- Nepcha Analytics (nepcha.com) -->
+      <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+      <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+    </head>
+    
+    <body class="">
+      <div class="container position-sticky z-index-sticky top-0">
+        <div class="row">
+          <div class="col-12">
+          </div>
+        </div>
+      </div>
+      <main class="main-content  mt-0">
+        <section>
+          <div class="page-header min-vh-100" style="background-image:url('../../static/img/half_pic.png');">
+            <div class="container">
+              <div class="row">
+                <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
+                  <div class="card card-plain">
+                    <div class="card-header">
+                      <h4 class="font-weight-bolder">Remplissez vos détails</h4>
+                      <p class="mb-0">Entrez vos informations</p>
+                    </div>
+                    <div class="card-body">
+                      <form class="form" method="post"> 
+                        {% csrf_token %}  
+                        <div class="input-group input-group-outline mb-3">
+                          <label class="form-label">Prénom</label>
+                          <input 
+                          type="text" 
+                          class="form-control" 
+                          id="prenom" 
+                          name="prenom" 
+                          aria-label="prenom"
+                          aria-describedby="name-addon"
+                          required>                        
+                        </div>
+                        <div class="input-group input-group-outline mb-3">
+                          <label class="form-label">Nom</label>
+                          <input 
+                          type="text" 
+                          class="form-control" 
+                          id="nom" 
+                          name="nom" 
+                          aria-label="nom"
+                          aria-describedby="name-addon"
+                          required>
+                        </div>
+                        <div class="input-group input-group-outline mb-3">
+                          <label class="form-label"></label>
+                          <select class="form-control" id="clinic" name="clinic" onfocus="focused(this)" onfocusout="defocused(this)" required>
+                            <option selected disabled>Clinique Vétérinaire</option>
+                            <option value="Le Véto - Clinique Vétérinaire.">Le Véto - Clinique Vétérinaire.</option>
+                            <option value="Carthage Vet - Clinique Vétérinaire.">Carthage Vet - Clinique Vétérinaire.</option>
+                            <option value="Clinique vétérinaire Jardins de Carthage.">Clinique vétérinaire Jardins de Carthage.</option>
+                            <option value="Clinique Vétérinaire de la Marsa.">Clinique Vétérinaire de la Marsa.</option>
+                            <option value="Clinique vétérinaire El Khalil.">Clinique vétérinaire El Khalil.</option>
+                            <option value="Clinique vétérinaire Ain Zaghouan Nord.">Clinique vétérinaire Ain Zaghouan Nord.</option>
+                            <option value="Archipets - Clinique Vétérinaire du Lac.">Archipets - Clinique Vétérinaire du Lac.</option>
+                            <option value="Clinique Vétérinaire MarsaVéto.">Clinique Vétérinaire MarsaVéto.</option>
+                            <option value="Clinique vétérinaire Happy Pets - Sidi Bousaid.">Clinique vétérinaire Happy Pets - Sidi Bousaid.</option>
+                            <option value="City VET, Clinique et Urgences Vétérinaire.">City VET, Clinique et Urgences Vétérinaire.</option>
+                            <option value="Mars'Animaux - Clinique Vétérinaire.">Mars'Animaux - Clinique Vétérinaire.</option>
+                            <option value="Clinique Vétérinaire El Hana.">Clinique Vétérinaire El Hana.</option>
+                          </select>
+                        </div>
+                        <div class="input-group input-group-outline mb-3">
+                          <label class="form-label"></label>
+                          <select class="form-control" id="clinic" name="ageInput" onfocus="focused(this)" onfocusout="defocused(this)" required>
+                            <option selected disabled>Spécialité</option>
+                            <option value="Vétérinaire généraliste.">Vétérinaire généraliste.</option>
+                            <option value="Vétérinaire spécialisé en animaux de compagnie.">Vétérinaire spécialisé en animaux de compagnie.</option>
+                            <option value="Vétérinaire équin.">Vétérinaire équin.</option>
+                            <option value="Vétérinaire des animaux exotiques.">Vétérinaire des animaux exotiques.</option>
+                            <option value="Vétérinaire des animaux de ferme (ou rurale).">Vétérinaire des animaux de ferme (ou rurale).</option>
+                            <option value="Vétérinaire chirurgien.">Vétérinaire chirurgien.</option>
+                            <option value="Vétérinaire spécialiste en dentisterie.">Vétérinaire spécialiste en dentisterie.</option>
+                            <option value="Vétérinaire dermatologue.">Vétérinaire dermatologue.</option>
+                            <option value="Vétérinaire cardiologue.">Vétérinaire cardiologue.</option>
+                            <option value="Vétérinaire oncologue.">Vétérinaire oncologue.</option>
+                            <option value="Vétérinaire neurologue.">Vétérinaire neurologue.</option>
+                            <option value="Vétérinaire ophtalmologiste.">Vétérinaire ophtalmologiste.</option>
+                            <option value="Vétérinaire comportementaliste.">Vétérinaire comportementaliste.</option>
+                            <option value="Vétérinaire pathologiste.">Vétérinaire pathologiste.</option>
+                            <option value="Vétérinaire toxicologue.">Vétérinaire toxicologue.</option>
+                            <option value="Vétérinaire en médecine interne.">Vétérinaire en médecine interne.</option>
+                            <option value="Vétérinaire en santé publique.">Vétérinaire en santé publique.</option>
+                            <option value="Vétérinaire anesthésiste.">Vétérinaire anesthésiste.</option>
+                          </select>
+                        </div>
+                        <div class="input-group input-group-outline mb-3">
+                          <label class="form-label">Numéro d'ordre</label>
+                          <input type="number" class="form-control" min="0" id="ordreInput" name="ordreInput" required>
+                        </div>
+                        {% if error %}  <div class="alert alert-danger" role="alert">
+                          Invalid username or password.
+                        </div>
+                      {% endif %}
+                        <div class="text-center">
+                          <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Next</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!--   Core JS Files   -->
+      <script src="../../static/js/core/popper.min.js"></script>
+      <script src="../../static/js/core/bootstrap.min.js"></script>
+      <script src="../../static/js/plugins/perfect-scrollbar.min.js"></script>
+      <script src="../../static/js/plugins/smooth-scrollbar.min.js"></script>
+      <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+          var options = {
+            damping: '0.5'
+          }
+          Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+      </script>
+      <!-- Github buttons -->
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+      <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+      <script src="../../static/js/material-dashboard.min.js?v=3.1.0"></script>
+    </body>
+    
+    </html>
